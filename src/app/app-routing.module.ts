@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'lazy-loading',
+    //in tsconfig - "module": "esnext"
+    loadChildren: () => import('./lazy-loading/lazy-loading.module')
+    .then(m => m.LazyLoadingModule)
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
